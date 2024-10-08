@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.app-container {
+    display: flex; /* Usar flexbox */
+    flex-direction: column; /* Colocar elementos en columna */
+    justify-content: center; /* Centrar verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+    height: 100vh; /* Altura completa de la ventana */
+    background-color: #f0f2f5; /* Color de fondo suave */
+    font-family: "Public Sans", "Noto Sans", sans-serif; /* Fuente */
+  }

@@ -1,0 +1,216 @@
+<!--
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>CXP|Prestamos</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+-->
+
+    <div
+      class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden"
+      style='--select-button-svg: url(&apos;data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(100,121,135)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e&apos;); font-family: "Public Sans", "Noto Sans", sans-serif;'
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <div class="layout-container flex h-full grow flex-col">
+            <div class="layout-container flex h-full grow flex-col">
+                <div class="gap-1 px-6 flex flex-1 justify-center py-5">
+                  <div class="layout-content-container flex flex-col w-80">
+                    <div class="flex h-full min-h-[700px] flex-col justify-between bg-white p-4">
+                      <div class="flex flex-col gap-4">
+                        <div class="flex flex-col gap-2" style="width: 150px;">
+                          <div class="flex items-center gap-3 px-3 py-2 rounded-xl bg-[#f0f3f4]"><p class="text-[#111517] text-sm font-medium leading-normal"><a routerLink="/inicio">Home</a></p></div>
+                          <div class="flex items-center gap-3 px-3 py-2"><p class="text-[#111517] text-sm font-medium leading-normal"><a routerLink="/lista-prestamos">Prestamos</a></p></div>
+                      <div class="flex items-center gap-3 px-3 py-2"><p class="text-[#111517] text-sm font-medium leading-normal"><a routerLink="/pago-cuota">Pagos</a></p></div>
+                      <div class="flex items-center gap-3 px-3 py-2"><p class="text-[#111517] text-sm font-medium leading-normal"><a routerLink="/nueva-solicitud">Solicitar</a></p></div>
+                        </div>
+                      </div>
+                      <button
+                        class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#1f93e0] text-white text-sm font-bold leading-normal tracking-[0.015em]" style="width: 150px;"
+                      >
+                        <span class="truncate" routerLink="/login">Cerrar Sesión</span>
+                      </button>
+                    </div>
+                  </div>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col w-[512px] max-w-[512px] py-5 max-w-[960px] flex-1">
+            <div class="flex flex-col gap-3 p-4">
+              <div class="flex gap-6 justify-between"><p class="text-[#111517] text-base font-medium leading-normal">Solicitar un prestamo</p></div>
+              <div class="rounded bg-[#dce1e5]"><div class="h-2 rounded bg-[#111517]" style="width: 20%;"></div></div>
+            </div>
+            <h3 class="text-[#111517] tracking-light text-2xl font-bold leading-tight px-4 text-left pb-2 pt-5">Elige el tipo de solicitante</h3>
+            <div class="flex flex-wrap gap-3 p-4">
+                <label
+                  class="text-sm font-medium leading-normal flex items-center justify-center rounded-xl border border-[#dce1e5] px-4 h-11 text-[#111517] has-[:checked]:border-[3px] has-[:checked]:px-3.5 has-[:checked]:border-[#1f93e0] relative cursor-pointer"
+                >
+                  Persona natural
+                  <input type="radio" class="invisible absolute" name="tipoPersona" value="natural" required />
+                </label>
+                <label
+                  class="text-sm font-medium leading-normal flex items-center justify-center rounded-xl border border-[#dce1e5] px-4 h-11 text-[#111517] has-[:checked]:border-[3px] has-[:checked]:px-3.5 has-[:checked]:border-[#1f93e0] relative cursor-pointer"
+                >
+                  Persona jurídica
+                  <input type="radio" class="invisible absolute" name="tipoPersona" value="juridica" />
+                </label>
+                <label
+                  class="text-sm font-medium leading-normal flex items-center justify-center rounded-xl border border-[#dce1e5] px-4 h-11 text-[#111517] has-[:checked]:border-[3px] has-[:checked]:px-3.5 has-[:checked]:border-[#1f93e0] relative cursor-pointer"
+                >
+                  Emprendedor
+                  <input type="radio" class="invisible absolute" name="tipoPersona" value="emprendedor" />
+                </label>
+              </div>
+              
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+                <label class="flex flex-col min-w-40 flex-1">
+                  <p class="text-[#111517] text-base font-medium leading-normal pb-2">Monto del préstamo</p>
+                  <input
+                    type="number"
+                    placeholder="$"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111517] focus:outline-0 focus:ring-0 border-none bg-[#f0f3f4] focus:border-none h-14 placeholder:text-[#647987] p-4 text-base font-normal leading-normal"
+                    min="0"
+                    required
+                  />
+                </label>
+              </div>
+              
+              <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+                <label class="flex flex-col min-w-40 flex-1">
+                  <p class="text-[#111517] text-base font-medium leading-normal pb-2">Cuotas del préstamo</p>
+                  <select
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111517] focus:outline-0 focus:ring-0 border-none bg-[#f0f3f4] focus:border-none h-14 placeholder:text-[#647987] p-4 text-base font-normal leading-normal"
+                    required
+                  >
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                  </select>
+                </label>
+              </div>
+              
+              <h3 class="text-[#111517] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Datos del solicitante</h3>
+
+              <!-- Numero de documento (DNI) -->
+              <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+                <label class="flex flex-col min-w-40 flex-1">
+                  <p class="text-[#111517] text-base font-medium leading-normal pb-2">Número de documento (DNI)</p>
+                  <input
+                    type="text"
+                    placeholder="Ingresa tu número de DNI"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111517] focus:outline-0 focus:ring-0 border-none bg-[#f0f3f4] focus:border-none h-14 placeholder:text-[#647987] p-4 text-base font-normal leading-normal"
+                    minlength="8"
+                    maxlength="8"
+                    pattern="\d{8}"
+                    required
+                  />
+                </label>
+                <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#1f93e0] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate"><a href="./"></a>Buscar</span>
+              </button>
+              </div>
+              
+              <!-- Nombres y apellidos -->
+              <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+                <label class="flex flex-col min-w-40 flex-1">
+                  <p class="text-[#111517] text-base font-medium leading-normal pb-2">Nombres</p>
+                  <input
+                    #nombre
+                    type="text"
+                    placeholder="Ingresa tus nombres"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111517] focus:outline-0 focus:ring-0 border-none bg-[#f0f3f4] focus:border-none h-14 placeholder:text-[#647987] p-4 text-base font-normal leading-normal"
+                    pattern="[a-zA-Z\s]+" 
+                    required
+                  />
+                </label>
+              </div>
+              
+              <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+                <label class="flex flex-col min-w-40 flex-1">
+                  <p class="text-[#111517] text-base font-medium leading-normal pb-2">Apellidos Maternos</p>
+                  <input
+                    #apellidoMaterno
+                    type="text"
+                    placeholder="Ingresa tus apellidos maternos"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111517] focus:outline-0 focus:ring-0 border-none bg-[#f0f3f4] focus:border-none h-14 placeholder:text-[#647987] p-4 text-base font-normal leading-normal"
+                    pattern="[a-zA-Z\s]+" 
+                    required
+                  />
+                </label>
+              </div>
+              
+              <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+                <label class="flex flex-col min-w-40 flex-1">
+                  <p class="text-[#111517] text-base font-medium leading-normal pb-2">Apellidos Paternos</p>
+                  <input
+                    #apellidoPaterno
+                    type="text"
+                    placeholder="Ingresa tus apellidos paternos"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111517] focus:outline-0 focus:ring-0 border-none bg-[#f0f3f4] focus:border-none h-14 placeholder:text-[#647987] p-4 text-base font-normal leading-normal"
+                    pattern="[a-zA-Z\s]+" 
+                    required
+                  />
+                </label>
+              </div>
+              
+              <span class="truncate">
+                <button (click)="onSubmit()">Continuar</button>
+              </span>
+              
+              <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+                <label class="flex flex-col min-w-40 flex-1">
+                  <p class="text-[#111517] text-base font-medium leading-normal pb-2">Correo electrónico</p>
+                  <input
+                    type="email"
+                    placeholder="Ingresa tu correo electrónico"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111517] focus:outline-0 focus:ring-0 border-none bg-[#f0f3f4] focus:border-none h-14 placeholder:text-[#647987] p-4 text-base font-normal leading-normal"
+                    required
+                  />
+                </label>
+              </div>
+            
+              <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+                <label class="flex flex-col min-w-40 flex-1">
+                  <p class="text-[#111517] text-base font-medium leading-normal pb-2">Número de celular</p>
+                  <input
+                    type="tel"
+                    placeholder="Ingresa tu número de celular"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111517] focus:outline-0 focus:ring-0 border-none bg-[#f0f3f4] focus:border-none h-14 placeholder:text-[#647987] p-4 text-base font-normal leading-normal"
+                    minlength="9"
+                    maxlength="9"
+                    pattern="9[0-9]{8}" 
+                    required
+                  />
+                </label>
+              </div>
+              
+            <div class="flex px-4 py-3 justify-end">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#1f93e0] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate"><a href="./"></a>Continuar</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!--
+  </body>
+</html>
+-->
