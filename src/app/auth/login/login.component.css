@@ -76,3 +76,11 @@ body {
 .forgot-password:hover {
   text-decoration: underline; /* Subrayado al pasar el cursor */
 }
+
+.ng-valid:not(form).ng-touched{
+  border-left: 5px solid #42A984;
+}
+
+.ng-invalid:not(form).ng-touched{
+  border-left: 5px solid #A94442;
+}

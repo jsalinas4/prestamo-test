@@ -6,9 +6,13 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModel } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration()
-    , importProvidersFrom(HttpClientModule), importProvidersFrom(NgModel), importProvidersFrom(NgModule)
+    , importProvidersFrom(HttpClientModule), 
   ]
 };
+
+useDefineForClassFields: false

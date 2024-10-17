@@ -14,7 +14,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,RouterLink, ActorComponent, InicioComponent, ListaprestamosComponent, NuevasolicitudComponent, PagocuotaComponent, LoginComponent],
+  imports: [RouterOutlet,RouterLink, ActorComponent, InicioComponent, ListaprestamosComponent, 
+    NuevasolicitudComponent, PagocuotaComponent, LoginComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
