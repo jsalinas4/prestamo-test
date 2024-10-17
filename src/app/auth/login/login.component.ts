@@ -4,6 +4,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {FormBuilder} from '@angular/forms';
 import {Validators} from '@angular/forms';
 import { NgIf } from '@angular/common';
+import { LoginService } from '../../services/login/login.service';
+import { LoginRequest } from '../../models/loginRequest';
 
 
 
@@ -20,17 +22,34 @@ import { NgIf } from '@angular/common';
 
 export class LoginComponent {
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private loginService: LoginService) {
   }
 
   username: string = '';
   password: string = '';
+  loginError:string="";
 
   login() {
     // Lógica para autenticarse con username y password
     if(this.loginForm.valid){
-      this.router.navigateByUrl('/inicio');
-      this.loginForm.reset();
+      //this.router.navigateByUrl('/inicio');
+      //this.loginForm.reset();
+
+      this.loginError="";
+      this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
+        next: (userData) => {
+          //console.log(userData);
+        },
+        error: (errorData) => {
+          console.error(errorData);
+          this.loginError=errorData;
+        },
+        complete: () => {
+          console.info("Login completo");
+          this.router.navigateByUrl('/inicio');
+          this.loginForm.reset();
+        }
+      })
     }
     else{
       this.loginForm.markAllAsTouched();
@@ -40,19 +59,19 @@ export class LoginComponent {
   
 
   loginForm = this.formBuilder.group({
-    email: ["", [Validators.required, Validators.email]],
-    pass: ["", Validators.required],
+    username: ["", [Validators.required, Validators.email]],
+    password: ["", Validators.required],
   });
   
   updateName() {
-    this.loginForm.controls.email.setValue('Jose');
+    this.loginForm.controls.username.setValue('Jose');
   }
 
   get email() {
-    return this.loginForm.controls.email;
+    return this.loginForm.controls.username;
   }
   get pass() {
-    return this.loginForm.controls.pass;
+    return this.loginForm.controls.password;
   }
   
   
