@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { User } from '../../models/user.model';
-import { UserService } from '../../services/user.service';
+import { UserService} from '../../services/user.service';
 import { NgFor } from '@angular/common';
+import { LoginService } from '../../services/login/login.service';
 
 @Component({
   selector: 'app-listaprestamos',
@@ -14,10 +15,15 @@ import { NgFor } from '@angular/common';
 export class ListaprestamosComponent implements OnInit{
   users: User[] = [];
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private loginService: LoginService, private router: Router) {}
 
   ngOnInit(): void {
-    this.loadUsers();
+    if (!this.loginService.currentUserLoginOn.getValue()) {
+      this.router.navigateByUrl('/login')
+    } else {
+      this.loadUsers();
+    }
+    
   }
 
   loadUsers(): void {

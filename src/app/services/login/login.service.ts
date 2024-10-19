@@ -24,17 +24,21 @@ export class LoginService {
         sessionStorage.setItem("token", userData.token);
         this.currentUserData.next(userData.token);
         this.currentUserLoginOn.next(true);
-        console.log(this.currentUserLoginOn.getValue())
+        //console.log(this.currentUserLoginOn.getValue())
       }),
       map((userData)=> userData.token),
       catchError(this.handleError)
     );
   }
 
+  userinfo():Observable<User>{
+    return this.http.get<User>(environment.urlApi+"auth/info");
+  }
+
   logout():void{
     sessionStorage.removeItem("token");
     this.currentUserLoginOn.next(false);
-    console.log(this.currentUserLoginOn.getValue())
+    //console.log(this.currentUserLoginOn.getValue())
   }
 
   private handleError(error:HttpErrorResponse){
@@ -57,17 +61,6 @@ export class LoginService {
 
   get userToken():String{
     return this.currentUserData.value;
-  }
-
-  checkToken(): boolean {
-    const token = sessionStorage.getItem('token');
-    if(token!==null && token.trim() !== ''){
-        return true;
-    }
-    else{
-      return false;
-    }
-    
   }
 
 }

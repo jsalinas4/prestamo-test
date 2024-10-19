@@ -1,8 +1,9 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../services/user.service'; // Asegúrate de tener bien configurada esta ruta
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // FormBuilder no se usa pero lo mantengo en caso lo necesites
 import { User } from '../../models/user.model'; // Asegúrate de que el modelo User esté bien definido
+import { LoginService } from '../../services/login/login.service';
 
 @Component({
   selector: 'app-nuevasolicitud',
@@ -11,10 +12,17 @@ import { User } from '../../models/user.model'; // Asegúrate de que el modelo U
   templateUrl: './nuevasolicitud.component.html',
   styleUrls: ['./nuevasolicitud.component.css'] // Se corrige el nombre a "styleUrls"
 })
-export class NuevasolicitudComponent {
+export class NuevasolicitudComponent implements OnInit{
 
   // Inyección del servicio a través del constructor
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private loginService:LoginService, private router: Router) {}
+  ngOnInit(): void {
+    if (!this.loginService.currentUserLoginOn.getValue()) {
+      this.router.navigateByUrl('/login')
+    } else {
+      
+    }
+  }
 
   @ViewChild('nombre') nombreInput!: ElementRef;
   @ViewChild('apellidoMaterno') apellidoMaternoInput!: ElementRef;

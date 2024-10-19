@@ -13,7 +13,7 @@ export class UserService {
 
   // Método para obtener todos los usuarios
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(environment.urlApi+"/client");
+    return this.http.get<User[]>(environment.urlApi+"client");
   }
 
   getClientByDni(dni: string): Observable<any> {

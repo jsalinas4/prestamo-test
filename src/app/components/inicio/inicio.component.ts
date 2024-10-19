@@ -18,11 +18,24 @@ export class InicioComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    const login = this.loginService.checkToken();
-    if (!login) {
+
+    if (!this.loginService.currentUserLoginOn.getValue()) {
       this.router.navigateByUrl('/login')
     } else {
-      
+      this.loginService.userinfo().subscribe({
+        next: (data)=>{
+          this.user = {
+            clientId: 0, // Asignar un valor por defecto o dejar como null
+            clientType: '', // Asignar un valor por defecto o dejar como null
+            firstName: data.firstName, // Asignar un valor por defecto o dejar como null
+            lastName: data.lastName, // Asignar un valor por defecto o dejar como null
+            dniRuc: '', // Asignar un valor por defecto o dejar como null
+            address: '', // Asignar un valor por defecto o dejar como null
+            phone: '', // Asignar un valor por defecto o dejar como null
+            email: '' // Asignar el valor del email
+          };
+        }
+      })
     }
   }
 
