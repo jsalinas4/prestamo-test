@@ -21,6 +21,7 @@ export class InicioComponent implements OnInit{
 
     if (!this.loginService.currentUserLoginOn.getValue()) {
       this.router.navigateByUrl('/login')
+      
     } else {
       this.loginService.userinfo().subscribe({
         next: (data)=>{
