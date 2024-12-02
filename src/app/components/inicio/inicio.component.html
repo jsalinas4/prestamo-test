@@ -1,168 +1,42 @@
-<html>
-  <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
-    <link
-      rel="stylesheet"
-      as="style"
-      onload="this.rel='stylesheet'"
-      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
-    />
 
-    <title>CXP|Prestamos</title>
-    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <a routerLink="inicio">Inicio</a>
+      <a routerLink="/lista-prestamos">Prestamos</a>
+      <a href="../Cronograma pagos/cronograma-pago.html">Pagos</a>
+      <button routerLink="/login" class="logout-btn">Cerrar Sesión</button>
+    </div>
 
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  </head>
-  <body>
-    <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
-      <div class="layout-container flex h-full grow flex-col">
-        <div class="gap-1 px-6 flex flex-1 justify-center py-5">
-          <div class="layout-content-container flex flex-col w-80">
-            <div class="flex h-full min-h-[700px] flex-col justify-between bg-white p-4">
-              <div class="flex flex-col gap-4">
-                <div class="flex flex-col gap-2" style="width: 150px;">
-                  <div class="flex items-center gap-3 px-3 py-2 rounded-xl bg-[#f0f3f4]"><p class="text-[#111517] text-sm font-medium leading-normal"><a routerLink="/inicio">Home</a></p></div>
-                  <div class="flex items-center gap-3 px-3 py-2"><p class="text-[#111517] text-sm font-medium leading-normal"><a routerLink="/lista-prestamos">Prestamos</a></p></div>
-                  <div class="flex items-center gap-3 px-3 py-2"><p class="text-[#111517] text-sm font-medium leading-normal"><a routerLink="/pago-cuota">Pagos</a></p></div>
-                  <div class="flex items-center gap-3 px-3 py-2"><p class="text-[#111517] text-sm font-medium leading-normal"><a routerLink="/nueva-solicitud">Solicitar</a></p></div>
-                </div>
-              </div>
-              <button
-                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#1f93e0] text-white text-sm font-bold leading-normal tracking-[0.015em]" style="width: 150px;"
-              >
-                <span class="truncate" (click)="logout()">Cerrar Sesión</span>
-              </button>
-            </div>
-          </div>
-          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-            <div class="flex flex-wrap justify-between gap-3 p-4"><p class="text-[#111517] tracking-light text-[32px] font-bold leading-tight min-w-72">Bienvenido, {{user?.firstName}}</p></div>
-            <h3 class="text-[#111517] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Resumen</h3>
-            <div class="flex flex-wrap gap-4 p-4">
-              <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#dce1e5]">
-                <p class="text-[#111517] text-base font-medium leading-normal">Saldo actual</p>
-                <p class="text-[#111517] tracking-light text-2xl font-bold leading-tight">$1,000</p>
-                <p class="text-[#078838] text-base font-medium leading-normal">+20%</p>
-              </div>
-              <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#dce1e5]">
-                <p class="text-[#111517] text-base font-medium leading-normal">Próximo pago</p>
-                <p class="text-[#111517] tracking-light text-2xl font-bold leading-tight">$200</p>
-                <p class="text-[#e73508] text-base font-medium leading-normal">-20%</p>
-              </div>
-              <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#dce1e5]">
-                <p class="text-[#111517] text-base font-medium leading-normal">Préstamo disponible</p>
-                <p class="text-[#111517] tracking-light text-2xl font-bold leading-tight">$0</p>
-                <p class="text-[#e73508] text-base font-medium leading-normal">-100%</p>
-              </div>
-            </div>
-            <div class="grid grid-cols-[40px_1fr] gap-x-2 px-4">
-              <div class="flex flex-col items-center gap-1 pt-3">
-                <div class="text-[#111517]" data-icon="Calendar" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path
-                      d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-96-88v64a8,8,0,0,1-16,0V132.94l-4.42,2.22a8,8,0,0,1-7.16-14.32l16-8A8,8,0,0,1,112,120Zm59.16,30.45L152,176h16a8,8,0,0,1,0,16H136a8,8,0,0,1-6.4-12.8l28.78-38.37A8,8,0,1,0,145.07,132a8,8,0,1,1-13.85-8A24,24,0,0,1,176,136,23.76,23.76,0,0,1,171.16,150.45Z"
-                    ></path>
-                  </svg>
-                </div>
-                <div class="w-[1.5px] bg-[#dce1e5] h-2 grow"></div>
-              </div>
-              <div class="flex flex-1 flex-col py-3">
-                <p class="text-[#111517] text-base font-medium leading-normal">Hoy</p>
-                <p class="text-[#647987] text-base font-normal leading-normal">Pago pendiente</p>
-              </div>
-              <div class="flex flex-col items-center gap-1">
-                <div class="w-[1.5px] bg-[#dce1e5] h-2"></div>
-                <div class="text-[#111517]" data-icon="Money" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path
-                      d="M128,88a40,40,0,1,0,40,40A40,40,0,0,0,128,88Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,152ZM240,56H16a8,8,0,0,0-8,8V192a8,8,0,0,0,8,8H240a8,8,0,0,0,8-8V64A8,8,0,0,0,240,56ZM193.65,184H62.35A56.78,56.78,0,0,0,24,145.65v-35.3A56.78,56.78,0,0,0,62.35,72h131.3A56.78,56.78,0,0,0,232,110.35v35.3A56.78,56.78,0,0,0,193.65,184ZM232,93.37A40.81,40.81,0,0,1,210.63,72H232ZM45.37,72A40.81,40.81,0,0,1,24,93.37V72ZM24,162.63A40.81,40.81,0,0,1,45.37,184H24ZM210.63,184A40.81,40.81,0,0,1,232,162.63V184Z"
-                    ></path>
-                  </svg>
-                </div>
-                <div class="w-[1.5px] bg-[#dce1e5] h-2 grow"></div>
-              </div>
-              <div class="flex flex-1 flex-col py-3">
-                <p class="text-[#111517] text-base font-medium leading-normal">15 de febrero de 2024</p>
-                <p class="text-[#647987] text-base font-normal leading-normal">Préstamo de $1,000</p>
-              </div>
-              <div class="flex flex-col items-center gap-1 pb-3">
-                <div class="w-[1.5px] bg-[#dce1e5] h-2"></div>
-                <div class="text-[#111517]" data-icon="Money" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path
-                      d="M128,88a40,40,0,1,0,40,40A40,40,0,0,0,128,88Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,152ZM240,56H16a8,8,0,0,0-8,8V192a8,8,0,0,0,8,8H240a8,8,0,0,0,8-8V64A8,8,0,0,0,240,56ZM193.65,184H62.35A56.78,56.78,0,0,0,24,145.65v-35.3A56.78,56.78,0,0,0,62.35,72h131.3A56.78,56.78,0,0,0,232,110.35v35.3A56.78,56.78,0,0,0,193.65,184ZM232,93.37A40.81,40.81,0,0,1,210.63,72H232ZM45.37,72A40.81,40.81,0,0,1,24,93.37V72ZM24,162.63A40.81,40.81,0,0,1,45.37,184H24ZM210.63,184A40.81,40.81,0,0,1,232,162.63V184Z"
-                    ></path>
-                  </svg>
-                </div>
-              </div>
-              <div class="flex flex-1 flex-col py-3">
-                <p class="text-[#111517] text-base font-medium leading-normal">20 de febrero de 2024</p>
-                <p class="text-[#647987] text-base font-normal leading-normal">Pago completo de $1,000</p>
-              </div>
-            </div>
-            <h3 class="text-[#111517] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Prestamos recientes</h3>
-            <div class="px-4 py-3 @container">
-              <div class="flex overflow-hidden rounded-xl border border-[#dce1e5] bg-white">
-                <table class="flex-1">
-                  <thead>
-                    <tr class="bg-white">
-                      <th class="table-3d1ad841-b140-4d19-a9b0-df91581ac811-column-120 px-4 py-3 text-left text-[#111517] w-[400px] text-sm font-medium leading-normal">Fecha</th>
-                      <th class="table-3d1ad841-b140-4d19-a9b0-df91581ac811-column-240 px-4 py-3 text-left text-[#111517] w-[400px] text-sm font-medium leading-normal">Monto</th>
-                      <th class="table-3d1ad841-b140-4d19-a9b0-df91581ac811-column-360 px-4 py-3 text-left text-[#111517] w-60 text-sm font-medium leading-normal">Estado</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="border-t border-t-[#dce1e5]">
-                      <td class="table-3d1ad841-b140-4d19-a9b0-df91581ac811-column-120 h-[72px] px-4 py-2 w-[400px] text-[#647987] text-sm font-normal leading-normal">
-                        15 de febrero de 2024
-                      </td>
-                      <td class="table-3d1ad841-b140-4d19-a9b0-df91581ac811-column-240 h-[72px] px-4 py-2 w-[400px] text-[#647987] text-sm font-normal leading-normal">$1,000</td>
-                      <td class="table-3d1ad841-b140-4d19-a9b0-df91581ac811-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
-                        <button
-                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 bg-[#f0f3f4] text-[#111517] text-sm font-medium leading-normal w-full"
-                        >
-                          <span class="truncate">Activo</span>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr class="border-t border-t-[#dce1e5]">
-                      <td class="table-3d1ad841-b140-4d19-a9b0-df91581ac811-column-120 h-[72px] px-4 py-2 w-[400px] text-[#647987] text-sm font-normal leading-normal">
-                        15 de febrero de 2024
-                      </td>
-                      <td class="table-3d1ad841-b140-4d19-a9b0-df91581ac811-column-240 h-[72px] px-4 py-2 w-[400px] text-[#647987] text-sm font-normal leading-normal">$1,000</td>
-                      <td class="table-3d1ad841-b140-4d19-a9b0-df91581ac811-column-360 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
-                        <button
-                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 bg-[#f0f3f4] text-[#111517] text-sm font-medium leading-normal w-full"
-                        >
-                          <span class="truncate">Completado</span>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <style>
-                          @container(max-width:120px){.table-3d1ad841-b140-4d19-a9b0-df91581ac811-column-120{display: none;}}
-                @container(max-width:240px){.table-3d1ad841-b140-4d19-a9b0-df91581ac811-column-240{display: none;}}
-                @container(max-width:360px){.table-3d1ad841-b140-4d19-a9b0-df91581ac811-column-360{display: none;}}
-              </style>
-            </div>
-            <div class="flex px-4 py-3 justify-start">
-              <button
-                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 flex-1 bg-[#1f93e0] text-white text-sm font-bold leading-normal tracking-[0.015em]"
-              >
-                <span class="truncate"><a routerLink="/pago-cuota">Registrar pago</a></span>
-              </button>
-            </div>
-            <div class="flex px-4 py-3 justify-start">
-              <button
-                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 flex-1 bg-[#f0f3f4] text-[#111517] text-sm font-bold leading-normal tracking-[0.015em]"
-              >
-                <span class="truncate"><a routerLink="/nueva-solicitud">Solicitar nuevo préstamo</a></span>
-              </button>
-            </div>
-          </div>
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="header">Bienvenido</div>
+      <!-- Resumen -->
+      <div class="summary">
+        <div class="summary-box">
+            <p>Saldo Prestado</p>
+            <h3 id="saldoPrestado">0</h3>
+            <p class="positive" id="porcentajeSaldo">0%</p>
         </div>
+        <div class="summary-box">
+            <p>Prestamos Completados</p>
+            <h3 id="prestamosCompletados">0</h3>
+            <p class="negative" id="porcentajeCompletados">0%</p>
+        </div>
+        <div class="summary-box">
+            <p>Préstamo Total</p>
+            <h3 id="prestamoTotal">0</h3>
+        </div>
+    </div>
+    
+
+      <div class="header">Prestamos recientes</div>
+
+      <!-- Tabla de préstamos -->
+      <div class="table-container">
+        <a routerLink="/nueva-solicitud">
+          <button>Nuevo Prestamos</button>
+        </a>
       </div>
     </div>
-  </body>
-</html>
+  </div>

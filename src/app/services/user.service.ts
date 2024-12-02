@@ -20,6 +20,10 @@ export class UserService {
     return this.http.get<any>(`${environment.urlApi}/data/${dni}`);
   }
 
+  getClientByRuc(ruc: number): Observable<any> {
+    return this.http.get<any>(`${environment.urlApi}/pyme/${ruc}`);
+  }
+
   sendClientData(clientData: any): Observable<any> {
     return this.http.post(environment.urlApi+"/client", clientData);
   }

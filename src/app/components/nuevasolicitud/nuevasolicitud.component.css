@@ -1,0 +1,211 @@
+/* Estilos generales */
+body {
+    font-family: 'Public Sans', 'Noto Sans', sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    display: flex;
+    min-height: 70vh;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: 100px;
+    background-color: #f4f5f6;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: fixed; /* Esto hace que el sidebar se quede fijo */
+    top: 0; /* Ancla el sidebar en la parte superior */
+    left: 0;
+    height: 100%;
+  }
+
+  .sidebar a {
+    text-decoration: none;
+    color: #111517;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px;
+    background-color: #f0f3f4;
+    border-radius: 10px;
+    display: block;
+    transition: background-color 0.3s;
+  }
+
+  .sidebar a:hover {
+    background-color: #dcdfe3;
+  }
+
+  .logout-btn {
+    background-color: #1f93e0;
+    color: #fff;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    width: 150px;
+    border: none;
+  }
+
+  .logout-btn:hover {
+    background-color: #156b9c;
+  }
+
+/* Formulario */
+.formulario {
+    flex: 1; /* Hace que ocupe el resto del espacio disponible */
+    padding: 20px;
+    background-color: white;
+}
+
+.container-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.radio-container {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    margin-bottom: 20px;
+}
+
+.radio-container input[type="radio"] {
+    display: none; /* Oculta el radio button */
+}
+
+.radio-container label {
+    display: inline-block;
+    background-color:none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-right: 20px; /* Espacio entre los elementos */
+    font-size: 14px;
+    font-weight: normal;
+    border: 1.3px solid black;
+}
+
+.radio-container input:checked + label {
+    color: white;
+    background-color: black;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+/* Otros estilos de inputs, select, botones, etc. */
+.input-container input[type="text"],
+.input-container input[type="number"],
+.input-container input[type="email"],
+.input-container input[type="tel"],
+.input-container select {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0;
+
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #f0f3f4;
+    font-size: 16px;
+}
+
+.input-container{
+    margin-top: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.button:hover {
+    background-color: gray;
+}
+
+.form-container{
+    width: 80vh;
+    margin: 5px 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+}
+
+/* Estilos del formulario */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0;
+}
+
+label {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fafafa;
+}
+
+input[type="number"], input[type="tel"], input[type="email"] {
+    -moz-appearance: textfield;
+}
+
+input:focus, textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+textarea {
+    resize: vertical;
+}
+
+.form-group .error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+

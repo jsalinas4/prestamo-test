@@ -1,0 +1,143 @@
+/* Estilos generales */
+body {
+    font-family: 'Public Sans', 'Noto Sans', sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: rows;
+    
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: 100px;
+    height: 100vh;
+    background-color: #f4f5f6;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: fixed; /* Esto hace que el sidebar se quede fijo */
+    top: 0; /* Ancla el sidebar en la parte superior */
+    
+  }
+
+  .sidebar a {
+    text-decoration: none;
+    color: #111517;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px;
+    background-color: #f0f3f4;
+    border-radius: 10px;
+    display: block;
+    transition: background-color 0.3s;
+  }
+
+  .sidebar a:hover {
+    background-color: #dcdfe3;
+  }
+  .logout-button {
+    background-color: #1f93e0;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .logout-button:hover {
+    background-color: #0e70b6;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    margin-top: 20px;
+    margin-left: 200px;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    border-radius: 50px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .search-icon {
+    color: #888;
+    margin-left: 10px;
+  }
+  
+  .search-input {
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 50px;
+    background-color: transparent;
+    outline: none;
+  }
+  
+  .section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .loan-list {
+    margin-top: 20px;
+  }
+
+.loan-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: white;
+    width: 60%;
+    height: 100px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 15px; 
+    margin-bottom: 8px; 
+}
+
+.loan-info {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    margin: 5px; 
+}
+
+.client-name {
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    margin: 5px;
+
+}
+
+.loan-date, .loan-amount, .loan-term, .payment-status {
+    font-size: 14px;
+    color: #666;
+    width: 40%;
+    margin-right: 10px;
+}
+
+.payment-status .status-positive {
+    color: green;
+    font-weight: bold;
+}
+
+.payment-status .status-negative {
+    color: red;
+    font-weight: bold;
+}
