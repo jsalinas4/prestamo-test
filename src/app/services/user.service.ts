@@ -16,11 +16,12 @@ export class UserService {
     return this.http.get<User[]>(environment.urlApi+"client");
   }
 
-  getClientByDni(dni: string): Observable<any> {
+  getClientByDni(dni: number): Observable<any> {
     return this.http.get<any>(`${environment.urlApi}/data/${dni}`);
   }
 
   sendClientData(clientData: any): Observable<any> {
     return this.http.post(environment.urlApi+"/client", clientData);
   }
+  
 }

@@ -35,8 +35,15 @@ export class LoginComponent {
       //this.router.navigateByUrl('/inicio');
       //this.loginForm.reset();
 
+
+      const loginRequest: LoginRequest = {
+        email: this.loginForm.value.username ?? '',  // Usamos el email transformado en lugar del username
+        password: this.loginForm.value.password ?? ''
+      };
+
+      console.log(loginRequest)
       this.loginError="";
-      this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
+      this.loginService.login(loginRequest).subscribe({
         next: (userData) => {
           //console.log(userData);
         },

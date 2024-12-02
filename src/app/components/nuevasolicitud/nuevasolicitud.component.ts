@@ -24,6 +24,7 @@ export class NuevasolicitudComponent implements OnInit{
     }
   }
 
+  @ViewChild('dni') dniInput!: ElementRef;
   @ViewChild('nombre') nombreInput!: ElementRef;
   @ViewChild('apellidoMaterno') apellidoMaternoInput!: ElementRef;
   @ViewChild('apellidoPaterno') apellidoPaternoInput!: ElementRef;
@@ -58,4 +59,23 @@ export class NuevasolicitudComponent implements OnInit{
         console.error('Error al enviar los datos:', error);
       });
   }
+
+  onSearch() {
+
+
+    console.log(this.dniInput.nativeElement.value);
+
+    this.userService.getClientByDni(this.dniInput.nativeElement.value)
+    .subscribe(response => {
+      console.log('Datos enviados con éxito:', response);
+
+      this.nombreInput.nativeElement.value=response.nombres
+      this.apellidoMaternoInput.nativeElement.value=response.apellidoMaterno
+      this.apellidoPaternoInput.nativeElement.value=response.apellidoPaterno
+    }, error => {
+      console.error('Error al enviar los datos:', error);
+    });
+
+  }
+  
 }

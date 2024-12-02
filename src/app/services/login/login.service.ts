@@ -19,7 +19,7 @@ export class LoginService {
   }
 
   login(credentials:LoginRequest):Observable<any>{
-    return this.http.post<any>(environment.urlApi+"auth/login",credentials).pipe(
+    return this.http.post<any>(environment.urlApi+"/auth/login",credentials).pipe(
       tap( (userData) => {
         sessionStorage.setItem("token", userData.token);
         this.currentUserData.next(userData.token);
@@ -32,7 +32,7 @@ export class LoginService {
   }
 
   userinfo():Observable<User>{
-    return this.http.get<User>(environment.urlApi+"auth/info");
+    return this.http.get<User>(environment.urlApi+"/auth/info");
   }
 
   logout():void{
